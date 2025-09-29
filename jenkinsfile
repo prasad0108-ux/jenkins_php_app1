@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/prasad0108-ux/jenkins_php_app1.git'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Run your PHP deployment script
+                sh 'php deploy.php'
+            }
+        }
+    }
+}
